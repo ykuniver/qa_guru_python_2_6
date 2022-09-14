@@ -65,6 +65,9 @@ def test_verify_xlsx_file():
                     cell = sheet.cell(r, c).value
                     if cell is not None and xlsx_pattern in cell:
                         exists_in_xlsx = True
+                        break
+                if exists_in_xlsx:
+                    break
 
             assert exists_in_xlsx
 
@@ -82,5 +85,6 @@ def test_verify_pdf_file():
                 text = page.extract_text()
                 if pdf_pattern in text:
                     exists_in_pdf = True
+                    break
 
             assert exists_in_pdf
